@@ -7,7 +7,7 @@ import './collection-item.styles.scss';
 
 class CollectionItem extends Component {
   render() {
-    const { id, name, price, imageUrl } = this.props;
+    const { id, name, price, imageUrl, addItem } = this.props;
     return (
       <div className='collection-item'>
         <div
@@ -20,7 +20,7 @@ class CollectionItem extends Component {
           <span className='name'>{name}</span>
           <span className='price'>{price}</span>
         </div>
-        <CustomButton inverted onClick={() => this.props.addItem({id, name, price, imageUrl})}> Add to cart </CustomButton>
+        <CustomButton inverted onClick={() => addItem({id, name, price, imageUrl})}> Add to cart </CustomButton>
       </div>
     );
   }
