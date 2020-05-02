@@ -5,15 +5,11 @@ import './collection.styles.scss';
 
 import CollectionItem from "../../components/collection-item/collection-item.component";
 
-const Collection = ({collection, match}) => {
-    console.log(collection);
-    console.log(match);
-    return (
+const Collection = ({collection}) => (
         <div className="category">
             <h2>COLLECTION PAGE</h2>
         </div>
-    )
-};
+    );
 
 const mapStateToProps = (state, ownProps) => {
     return {
