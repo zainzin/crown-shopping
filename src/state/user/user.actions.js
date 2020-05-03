@@ -12,7 +12,6 @@ export const getUsersStarted = () => {
 }
 
 export const getUsersSuccess = (payload) => {
-    console.log(payload);
     return {
         type: GET_USERS_SUCCESS,
         payload

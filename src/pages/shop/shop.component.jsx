@@ -19,13 +19,13 @@ class ShopPage extends Component {
     }), 1000);  
   }
   
-  render() { 
+  render() {
     const {loading} = this.state;
     const {match} = this.props;
     return (
   <div className='shop-page'>
     <Route exact path={`${match.path }`} render={(props) => <CollectionsOverviewWithSpinner isLoading={loading} {...props} />} />
-    <Route path={`${match.path}/:collectionId`} redner={(props) => <CollectionsWithSpinner isLoading={loading} {...props} />} />
+    <Route path={`${match.path}/:collectionId`} render={(props) => <CollectionsWithSpinner isLoading={loading} {...props} />} />
   </div>
   )}
 }
