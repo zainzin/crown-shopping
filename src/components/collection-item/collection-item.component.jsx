@@ -7,7 +7,7 @@ import './collection-item.styles.scss';
 
 class CollectionItem extends Component {
   render() {
-    const { id, name, price, imageUrl, addItem } = this.props;
+    const { item: {id, name, price, imageUrl}, addItem } = this.props;
     return (
       <div className='collection-item'>
         <div
