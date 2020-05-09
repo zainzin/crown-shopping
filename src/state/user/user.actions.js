@@ -25,15 +25,15 @@ export const getUsersFailed = (payload) => {
     }
 }
 
-export const getUsers = () => {
-    return async dispatch => {
-        dispatch(getUsersStarted());
-        const res = await fetch('http://jsonplaceholder.typicode.com/users');
-        const json = await res.json();
-        if (res.status >= 400) {
-            dispatch(getUsersFailed(json));
-        } else {
-            dispatch(getUsersSuccess(json));
-        }
-    }
-}
+// export const getUsers = () => {
+//     return async dispatch => {
+//         dispatch(getUsersStarted());
+//         const res = await fetch('http://jsonplaceholder.typicode.com/users');
+//         const json = await res.json();
+//         if (res.status >= 400) {
+//             dispatch(getUsersFailed(json));
+//         } else {
+//             dispatch(getUsersSuccess(json));
+//         }
+//     }
+// }

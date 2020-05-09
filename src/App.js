@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { setCurrentUser, getUsers } from "./state/user/user.actions";
+import { setCurrentUser, getUsersStarted } from "./state/user/user.actions";
 import './App.css';
 
 import HomePage from './pages/homepage/homepage.component';
@@ -21,9 +21,8 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const users = this.props.getUsers();
+    this.props.getUsersStarted();
     const {setCurrentUser} = this.props;
-
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -54,6 +53,9 @@ class App extends React.Component {
           <Route path='/checkout' component={CheckoutPage} />
           <Route exact path='/signin' render={() => this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />} />
         </Switch>
+        {this.props.users ? this.props.users.map((u) => (
+          <p key={u.id}>{u.name}</p>
+        )) : <p>none</p>}
       </div>
     );
   }
@@ -68,4 +70,4 @@ const mapStateToProps = createStructuredSelector({
   users: usersSelector
 });
 
-export default connect(mapStateToProps, {setCurrentUser, getUsers})(App);
+export default connect(mapStateToProps, {setCurrentUser, getUsersStarted})(App);

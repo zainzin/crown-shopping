@@ -8,6 +8,6 @@ export const userSelector = createSelector(
 );
 
 export const usersSelector = createSelector(
-    [(state) => state.users],
-    (users) => users
+    [userState],
+    (users) => users.users
 );
